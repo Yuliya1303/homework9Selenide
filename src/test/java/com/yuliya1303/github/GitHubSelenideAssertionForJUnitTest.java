@@ -22,14 +22,8 @@ public class GitHubSelenideAssertionForJUnitTest {
 
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
-
-        if ($$("#wiki-pages-box li").find(Condition.text("SoftAssertions")).isDisplayed()) {
-            $$("#wiki-pages-box li").find(Condition.text("SoftAssertions")).click();
-        } else {
-            $("#wiki-pages-box button").click();
-            $$("#wiki-pages-box li").find(Condition.text("SoftAssertions")).click();
-        }
-
+        $("#wiki-pages-box button").click();
+        $$("#wiki-pages-box li").find(Condition.text("SoftAssertions")).click();
         $$(".markdown-body h4").find(Condition.text("JUnit5")).shouldBe(Condition.visible);
     }
 
